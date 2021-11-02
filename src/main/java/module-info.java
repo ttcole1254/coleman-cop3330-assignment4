@@ -1,2 +1,0 @@
-module ucf.assignments.main {
-}
