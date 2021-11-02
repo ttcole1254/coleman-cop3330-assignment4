@@ -1,0 +1,2 @@
+module ucf.assignments.main {
+}
