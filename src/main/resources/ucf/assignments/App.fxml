@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" scaleShape="false" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="btnSave" mnemonicParsing="false" text="Save All" />
+            <Button fx:id="btnLoad" mnemonicParsing="false" text="Load List" />
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.29797979797979796" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="360.0" prefWidth="455.0" BorderPane.alignment="CENTER">
+        <items>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+              <top>
+                  <HBox alignment="CENTER" prefHeight="34.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="btnCreateNewList" mnemonicParsing="false" text="Create New List" />
+                    </children>
+                  </HBox>
+              </top>
+              <center>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="319.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ListView fx:id="ItemsToDo" editable="true" maxHeight="1.7976931348623157E308" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+              </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <ToolBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="TOP_LEFT">
+                          <items>
+                              <Button fx:id="btnSaveList" mnemonicParsing="false" text="Save List" />
+                            <Button fx:id="btnDeleteList" mnemonicParsing="false" text="Delete List" />
+                              <ComboBox fx:id="cmbFilter" prefWidth="150.0" promptText="Filter List" />
+                          </items>
+                        </ToolBar>
+                        <VBox BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" style="-fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="422.0">
+                                       <children>
+                                          <Label text="New Item">
+                                             <font>
+                                                <Font name="System Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="25.0" prefWidth="417.0">
+                                       <children>
+                                          <TextField fx:id="txtNewDescription" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="212.0" promptText="To Do">
+                                             <padding>
+                                                <Insets top="5.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <DatePicker fx:id="dtNewDueDate" prefHeight="25.0" prefWidth="207.0" promptText="Due Date">
+                                             <HBox.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </HBox.margin>
+                                          </DatePicker>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="TOP_CENTER">
+                                       <children>
+                                          <Button fx:id="btnCreateNewItem" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Create New Item" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </HBox.margin></Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                              </FlowPane>
+                           </children>
+                        </VBox>
+                     </top>
+                     <center>
+                        <TableView fx:id="tableView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                          <columns>
+                            <TableColumn fx:id="colDescription" prefWidth="75.0" text="Description" />
+                            <TableColumn fx:id="colDueDate" prefWidth="75.0" text="Due Date" />
+                              <TableColumn fx:id="colCompleted" prefWidth="75.0" text="Completed" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <left>
+                        <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <Button fx:id="btnMarkComplete" mnemonicParsing="false" text="Mark Complete">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="btnDeleteToDoItem" mnemonicParsing="false" text="Delete Item">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                        <Label alignment="BOTTOM_RIGHT" text="*Double click an item to edit it.">
+                           <font>
+                              <Font name="System Italic" size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <BorderPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </BorderPane.margin>
+                        </VBox>
+                     </left>
+            </BorderPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>

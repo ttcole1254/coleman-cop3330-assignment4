@@ -1,0 +1,76 @@
+@startuml
+
+class App {
+    main()
+    start()
+}
+
+class AppController {
+    model: AppModel
+
+    ToDoList: ObservableList
+
+    tableView: TableView
+    colDescription: TableColumn
+    colDueDate: TableColumn
+    colCompleted: TableColumn
+
+    toDoLV: ListView
+
+    txtNewDescription: TextField
+    dtNewDueDate: DatePicker
+    chkbx: CheckBox
+
+    currentToDoList: ToDoList
+    currentToDoItem: ToDoListItem
+
+    initialize()
+    refreshLists()
+    refreshItems()
+    clickToDoList()
+    btnLoadClick()
+    btnSaveClick()
+    btnNewListClick()
+    btnSaveListClick()
+    btnDeleteListClick()
+    btnNewItemClick()
+    btnDeleteItemClick()
+    btnMarkCompletedClick()
+}
+
+class AppModel {
+    ToDoList: Collection
+
+    loadAll()
+    saveAll()
+    addList()
+    loadList()
+    saveList()
+    deleteList()
+    completeItem()
+}
+
+class ToDoList {
+    addItem()
+    removeItem()
+    toDoListItems: Collection
+}
+
+class ToDoListItem {
+    complete: boolean
+    desc: String
+    dueDate: String
+    setDueDate()
+    getDueDate()
+    setComplete()
+    getComplete()
+    setDesc()
+    getDesc()
+}
+
+App -- AppController
+AppController -- AppModel
+AppModel -- ToDoList
+ToDoList -- ToDoListItem
+
+@enduml
